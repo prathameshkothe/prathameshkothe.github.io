@@ -167,3 +167,36 @@ topBtn.addEventListener("click",()=>{
     });
 
 });
+// ==========================================
+// TIMELINE SCROLL ANIMATION
+// ==========================================
+
+const reveals = document.querySelectorAll(".reveal");
+
+const revealOnScroll = () => {
+
+    reveals.forEach((item, index) => {
+
+        const windowHeight = window.innerHeight;
+
+        const elementTop = item.getBoundingClientRect().top;
+
+        const revealPoint = 120;
+
+        if (elementTop < windowHeight - revealPoint) {
+
+            setTimeout(() => {
+
+                item.classList.add("active");
+
+            }, index * 180);
+
+        }
+
+    });
+
+};
+
+window.addEventListener("scroll", revealOnScroll);
+
+window.addEventListener("load", revealOnScroll);
